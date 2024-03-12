@@ -1,0 +1,43 @@
+<!-- video_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video List</title>
+</head>
+<body>
+    <aside>
+        <h2>Videos</h2>
+        <ul>
+            {% for video in videos %}
+                <li>
+                    <a href="#" data-video-url="{{ video.content.url }}" onclick="changeVideo('{{ video.content.url }}')">
+                        {{ video.name }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </aside>
+
+    <div>
+        <h2>Video Player</h2>
+        <video id="videoPlayer" controls>
+            <source id="videoSource" src="{% if videos %}{{ videos.0.content.url }}{% endif %}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+        function changeVideo(videoUrl) {
+            var videoPlayer = document.getElementById('videoPlayer');
+            var videoSource = document.getElementById('videoSource');
+
+            videoSource.src = videoUrl;
+            videoPlayer.load();
+            videoPlayer.play();
+        }
+    </script>
+</body>
+</html>

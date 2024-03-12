@@ -1,0 +1,31 @@
+<!-- UserView/quiz.html -->
+{% extends 'UserView/base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/course.css' %}">
+{% block content %}
+<div class="articles" id="articles">
+  <h2 class="main-title">Quiz</h2>
+  <div class="container" style="display: flex; align-items: center; justify-content: center; flex-direction: column; width: 720px; height: 480px;">
+    <form method="post" action="{% url quiz %}">
+      {% csrf_token %}
+      <h2>Questions</h2>
+      
+      <!-- Loop through questions and options -->
+      {% for question_number, question in questions.items %}
+      <label for="question{{ question_number }}">{{ question.question }}</label><br>
+      <input type="radio" id="q{{ question_number }}_option1" name="question{{ question_number }}" value="{{ question.options.0 }}">
+      <label for="q{{ question_number }}_option1">{{ question.options.0 }}</label><br>
+      <input type="radio" id="q{{ question_number }}_option2" name="question{{ question_number }}" value="{{ question.options.1 }}">
+      <label for="q{{ question_number }}_option2">{{ question.options.1 }}</label><br>
+      <input type="radio" id="q{{ question_number }}_option3" name="question{{ question_number }}" value="{{ question.options.2 }}">
+      <label for="q{{ question_number }}_option3">{{ question.options.2 }}</label><br>
+      <input type="radio" id="q{{ question_number }}_option4" name="question{{ question_number }}" value="{{ question.options.3 }}">
+      <label for="q{{ question_number }}_option4">{{ question.options.3 }}</label><br>
+      <br>
+      {% endfor %}
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</div>
+{% endblock %}

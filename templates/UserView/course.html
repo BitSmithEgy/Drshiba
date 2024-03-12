@@ -1,0 +1,24 @@
+{% extends 'UserView/base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/course.css' %}">
+{% block content %}
+<div class="articles" id="articles">
+  <h2 class="main-title">Courses</h2>
+  <div class="container">
+    {% for video in videos %}
+      <div class="box">
+        <img src="{{video.image.url}}" alt="" />
+        <div class="content">
+          <h3>{{video.title}}</h3>
+          <p>{{video.description}}</p>
+        </div>
+        <div class="info">
+          <a href="{% url 'video' pk=video.id %}">Go to Video</a>
+          <i class="fas fa-long-arrow-alt-right"></i>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

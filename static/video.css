@@ -1,0 +1,14 @@
+.video{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+a.button-link {
+    font-style: none;
+    color: black; 
+    padding: 10px 35px;
+    border: 1px solid black;
+}

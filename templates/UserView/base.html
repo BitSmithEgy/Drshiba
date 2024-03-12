@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elzero</title>
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/elzero.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/ar.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/videos.css' %}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Start Header -->
+    <div class="header" id="header">
+      <div class="container">
+        <a href="/#" class="logo">PS</a>
+        <ul class="main-nav">
+          <li><a href="/#articles">الدورات</a></li>
+          <li><a href="/#gallery">المعرض</a></li>
+          <li><a href="/#features">المميزات</a></li>
+          <li>
+            <a href="#">روابط أخري</a>
+            <!-- Start Megamenu -->
+            <div class="mega-menu">
+              <div class="image">
+                <img src="{% static 'imgs/megamenu.png' %}" alt="" />
+              </div>
+              <ul class="links">
+                <li>
+                  <a href="#testimonials"><i class="fas fa-user fa-fw"></i>الصفحة الشخصية</a>
+                </li>
+
+                <li>
+                  <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt fa-fw"></i>تسجيل الخروج</a>
+                </li>
+              </ul>
+            </div>
+            <!-- End Megamenu -->
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- End Header -->
+    {% block content %}{% endblock %}
+  </body>

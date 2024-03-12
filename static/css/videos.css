@@ -1,0 +1,21 @@
+.video{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.button-link {
+    font-style: none;
+    color: #2196f3; 
+    padding: 10px 35px;
+    border: 1px solid #2196f3;
+    transition: .4s linear;
+}
+
+.button-link:hover {
+    color: white;
+    background-color: #2196f3;
+    border-color: #2196f3;
+}
